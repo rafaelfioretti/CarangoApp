@@ -20,7 +20,7 @@
 
 
             <ImageView
-                android:id="@+id/imagem"
+                android:id="@+id/ivcarrodetalhe"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
@@ -53,7 +53,7 @@
                     android:orientation="vertical"
                     android:padding="16dp">
                     <TextView
-                        android:id="@+id/desc"
+                        android:id="@+id/tvdescdetalhe"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Texto"/>

@@ -24,12 +24,12 @@ public class CarroListAdapter extends RecyclerView.Adapter<CarroListAdapter.Carr
 
     private Context context;
     private List<Carro> carros;
-    private OnClickListener clickListener;
+    private OnClickListener onClickListener;
 
-    public CarroListAdapter(Context context, List<Carro> carros){
+    public CarroListAdapter(Context context, List<Carro> carros, OnClickListener onClickListener){
         this.context = context;
         this.carros = carros;
-        this.clickListener = clickListener;
+        this.onClickListener = onClickListener;
     }
 
 
@@ -52,11 +52,11 @@ public class CarroListAdapter extends RecyclerView.Adapter<CarroListAdapter.Carr
                 .error(R.mipmap.ic_launcher)
                 .into(holder.ivCarro);
 
-        if (clickListener != null){
+        if (onClickListener != null){
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    clickListener.onClick(holder.itemView, position);
+                    onClickListener.onClick(holder.itemView, position);
                 }
             });
 

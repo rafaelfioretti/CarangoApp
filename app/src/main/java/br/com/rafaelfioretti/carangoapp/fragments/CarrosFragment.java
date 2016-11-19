@@ -91,6 +91,8 @@ public class CarrosFragment extends Fragment implements Callback<List<Carro>> {
             public void onClick(View v, int position){
 
                 Intent i = new Intent(getContext(), DetalheActivity.class);
+                i.putExtra("carro", adapter.getItem(position));
+                startActivity(i);
 
 
             }
@@ -112,7 +114,7 @@ public class CarrosFragment extends Fragment implements Callback<List<Carro>> {
     @Override
     public void onResponse(Call<List<Carro>> call, Response<List<Carro>> response) {
 
-        adapter = new CarroListAdapter(getContext(), response.body());
+        adapter = new CarroListAdapter(getContext(), response.body(), onClickListener());
         rvCarros.setAdapter(adapter);
 
     }
