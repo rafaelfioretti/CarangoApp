@@ -22,6 +22,24 @@ public class Carro implements Parcelable{
         this.foto = foto;
     }
 
+    protected Carro(Parcel in) {
+        nome = in.readString();
+        descricao = in.readString();
+        foto = in.readString();
+    }
+
+    public static final Creator<Carro> CREATOR = new Creator<Carro>() {
+        @Override
+        public Carro createFromParcel(Parcel in) {
+            return new Carro(in);
+        }
+
+        @Override
+        public Carro[] newArray(int size) {
+            return new Carro[size];
+        }
+    };
+
     public String getNome() {
         return nome;
     }
@@ -53,6 +71,8 @@ public class Carro implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-
+        parcel.writeString(nome);
+        parcel.writeString(descricao);
+        parcel.writeString(foto);
     }
 }
